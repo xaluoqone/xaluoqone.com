@@ -22,7 +22,7 @@ function App() {
     <div className={'root'}>
       {/*<ContextMain/>*/}
       <div className={'content'} style={{ flexDirection: 'column' }}>
-        <div>Welcome 2024~</div>
+        <div>Welcome to xaluoqone.com</div>
         <ul>{
           resumes.map(resume => (
             <li>
