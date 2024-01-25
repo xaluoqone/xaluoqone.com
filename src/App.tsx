@@ -32,14 +32,14 @@ function App() {
     <div className={'root'}>
       <div className={'content'} style={{ flexDirection: 'column' }}>
         <h3>Welcome to xaluoqone.com</h3>
-        <ul><h5>简历列表</h5>{
+        <ul><h4>简历列表</h4>{
           resumes.map(resume => (
             <li>
               <a href={resume.url} target={'_blank'} rel={'noreferrer'}>{resume.title}</a>
             </li>
           ))
         }</ul>
-        <ul><h5>小记</h5>{
+        <ul><h4>小记</h4>{
           docs.map(doc => (
             <li>
               <a href={doc.url} target={'_blank'} rel={'noreferrer'}>{doc.title}</a>
