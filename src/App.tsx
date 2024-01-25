@@ -20,7 +20,6 @@ const resumes: Resume[] = [
 function App() {
   return (
     <div className={'root'}>
-      {/*<ContextMain/>*/}
       <div className={'content'} style={{ flexDirection: 'column' }}>
         <h3>Welcome to xaluoqone.com</h3>
         <ul>{
