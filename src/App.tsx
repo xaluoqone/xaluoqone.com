@@ -1,9 +1,12 @@
 import React from 'react'
 import './App.css'
 
-interface Resume {
+interface Doc {
   title: string
   url: string
+}
+
+interface Resume extends Doc {
 }
 
 const resumes: Resume[] = [
@@ -17,15 +20,29 @@ const resumes: Resume[] = [
   },
 ]
 
+const docs: Doc[] = [
+  {
+    title: 'Retrofit 源码解析.md',
+    url: '/resume-2023.pdf',
+  },
+]
+
 function App() {
   return (
     <div className={'root'}>
       <div className={'content'} style={{ flexDirection: 'column' }}>
         <h3>Welcome to xaluoqone.com</h3>
-        <ul>{
+        <ul><h5>简历列表</h5>{
           resumes.map(resume => (
             <li>
               <a href={resume.url} target={'_blank'} rel={'noreferrer'}>{resume.title}</a>
+            </li>
+          ))
+        }</ul>
+        <ul><h5>小记</h5>{
+          docs.map(doc => (
+            <li>
+              <a href={doc.url} target={'_blank'} rel={'noreferrer'}>{doc.title}</a>
             </li>
           ))
         }</ul>
