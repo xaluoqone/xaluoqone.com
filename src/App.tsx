@@ -23,7 +23,7 @@ const resumes: Resume[] = [
 const docs: Doc[] = [
   {
     title: 'Retrofit 源码解析.md',
-    url: '/resume-2023.pdf',
+    url: 'https://github.com/xaluoqone/xaluoqone.com/blob/dev/public/docs/http/Retrofit%20%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90.md',
   },
 ]
 
