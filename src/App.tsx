@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FormEvent } from 'react'
+import React from 'react'
 import './App.css'
 import { useMount, useReactive } from 'ahooks'
 
@@ -18,6 +18,10 @@ const docs: Doc[] = [
   },
 ]
 
+const BASE_URL = 'https://api.xaluoqone.com'
+
+// const BASE_URL = 'http://localhost:8081'
+
 function App() {
   const state = useReactive({
     resumes: [] as Resume[],
@@ -25,7 +29,8 @@ function App() {
   })
 
   useMount(() => {
-    fetch('https://api.xaluoqone.com/resume/all', { method: 'GET' })
+    console.log('获取resumes')
+    fetch(`${BASE_URL}/resume/all`, { method: 'GET' })
       .then(async response => {
         if (response.ok) {
           state.resumes = await response.json()
@@ -54,32 +59,34 @@ function App() {
             </li>
           ))
         }</ul>
-        <form
-          onSubmit={(event: FormEvent<HTMLFormElement>) => {
-            event.preventDefault()
-            if (!state.file) return
-            const formData = new FormData()
-            formData.append('file', state.file)
-            fetch('https://api.xaluoqone.com/resume/upload', { method: 'POST', body: formData })
-              .then(response => {
-                if (response.ok) {
-                  console.log('File uploaded successfully')
-                } else {
-                  console.error('File upload failed')
-                }
-              })
-              .catch(error => console.error('Error:', error))
-          }}>
-          <input
-            type="file"
-            name="file"
-            onChange={(event: ChangeEvent<HTMLInputElement>) => {
-              if (event.target.files && event.target.files.length > 0) {
-                state.file = event.target.files[0]
-              }
-            }}/>
-          <button type="submit">Upload</button>
-        </form>
+        {/*<form*/}
+        {/*  onSubmit={(event: FormEvent<HTMLFormElement>) => {*/}
+        {/*    event.preventDefault()*/}
+        {/*    if (!state.file) return*/}
+        {/*    const formData = new FormData()*/}
+        {/*    formData.append('file', state.file)*/}
+        {/*    fetch(`${BASE_URL}/resume/upload`, { method: 'POST', body: formData })*/}
+        {/*      .then(async response => {*/}
+        {/*        if (response.ok) {*/}
+        {/*          const resume = await response.json()*/}
+        {/*          state.resumes.push(resume)*/}
+        {/*          console.log('File uploaded successfully')*/}
+        {/*        } else {*/}
+        {/*          console.error('File upload failed')*/}
+        {/*        }*/}
+        {/*      })*/}
+        {/*      .catch(error => console.error('Error:', error))*/}
+        {/*  }}>*/}
+        {/*  <input*/}
+        {/*    type="file"*/}
+        {/*    name="file"*/}
+        {/*    onChange={(event: ChangeEvent<HTMLInputElement>) => {*/}
+        {/*      if (event.target.files && event.target.files.length > 0) {*/}
+        {/*        state.file = event.target.files[0]*/}
+        {/*      }*/}
+        {/*    }}/>*/}
+        {/*  <button type="submit">Upload</button>*/}
+        {/*</form>*/}
       </div>
       <div className={'footer'}>
         <a href="https://beian.miit.gov.cn">赣ICP备2021006394号</a>
