@@ -16,6 +16,10 @@ const docs: Doc[] = [
     name: 'Retrofit 源码解析.md',
     url: 'https://github.com/xaluoqone/xaluoqone.com/blob/dev/public/docs/http/Retrofit%20%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90.md',
   },
+  {
+    name: 'https.md',
+    url: 'https://github.com/xaluoqone/Docs/blob/main/http/https.md',
+  },
 ]
 
 const BASE_URL = 'https://api.xaluoqone.com'
